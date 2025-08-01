@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LINA KHENFRI | UGC CREATOR</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #F9F4F1;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: -100PX;
+      transition: top 0.3s ease, background-color 0.3s ease;
+      left: 0;
+      width: 100%;
+      background-color: #B58E8E;
+      color: white;
+      padding: 0.2rem 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    body:hover header {
+      top: 0; /* يظهر لما يكون الماوس في أعلى الصفحة */
+    }
+
+    header:hover {
+      background-color: #a77b7b;
+    }
+
+    header img {
+      height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+    }
+
+    header h1:hover {
+      color: #ffe2e2;
+    }
+
+    header p {
+      margin-top: 0.2rem;
+      font-size: 1.1rem;
+    }
+
+    main {
+      padding-top: 160px;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+
+    .phone-frame {
+      position: relative;
+      width: 250px;
+      height: 444px;
+      border: 8px solid #000;
+      border-top-width: 20px;
+      border-bottom-width: 20px;
+      border-radius: 20px;
+      background: #000;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      margin-bottom: 1rem;
+
+    }
+
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 5px;
+      background: #333;
+      border-radius: 10px;
+    }
+
+    .phone-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: inline-block;
+      background-color: #D6A7A7;
+      color: white;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .contact a:hover {
+      background-color: #B58E8E;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+
+    #showMoreBtn {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 10px 25px;
+      background-color: #D6A7A7;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    #showMoreBtn:hover {
+      background-color: #B58E8E;
+      transform: scale(1.05);
+    }
+  </style>
+
+</head>
+<body>
+
+<header>
+  <img src="LOGO.jpg" alt="Logo de Lina">
+  <div>
+    <h1>LINA KHENFRI</h1>
+    <p>UGC CREATOR</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- About -->
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I'm Lina Khenfri, a UGC creator from Algeria. I create elegant and authentic content that helps brands reach their audience effectively.
+      <br><br>
+      Available for collaborations via email or Instagram.
+    </p>
+  </section>
+
+  <!-- Why -->
+  <section>
+    <h2>Why Choose Me?</h2>
+    <ul>
+      <li>I have a refined visual sense and a deep understanding of the female market.</li>
+      <li>I provide high-quality professional work with strict respect for delivery deadlines.</li>
+      <li>I deliver aesthetic and realistic UGC that reflects brand identity and increases engagement.</li>
+    </ul>
+  </section>
+
+  <!-- Portfolio -->
+  <section>
+    <h2>My Portfolio</h2>
+    <div class="portfolio" id="portfolio">
+      <!-- سيتم عرض الفيديوهات من DOM -->
+    </div>
+    <button id="showMoreBtn"> Show more </button>
+  </section>
+
+  <!-- Services -->
+  <section>
+    <h2>Services</h2>
+    <ul>
+      <li>High-quality product photos</li>
+      <li>Short product videos</li>
+      <li>Unboxing and aesthetic showcasing</li>
+    </ul>
+  </section>
+
+  <!-- Focus -->
+  <section>
+    <h2>Content Focus</h2>
+    <p>I create content mainly in the beauty, accessories, and tech gadgets niches.</p>
+  </section>
+
+  <!-- Languages -->
+  <section>
+    <h2>Languages</h2>
+    <p>Arabic (native), French (good), English (good)</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <a href="mailto:ugcbylinakhenfri@gmail.com">📧 Email</a>
+    <br><br>
+    <a href="https://www.instagram.com/ugc_by.lina" target="_blank">📸 Instagram</a>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 LINA KHENFRI | Designed with ❤️
+</footer>
+
+<!-- Script -->
+<script>
+  const videoSources = [
+      "https://youtube.com/embed/NISJYZ66zxU?si=G1Bf8sGJygv9u1QR", "https://youtube.com/embed/54_fClMXQuA?si=tZZ9PPoBS66wImYp",
+       "https://youtube.com/embed/v2fFoPLQuxc?si=pr1gg-01YOI4Lcsy", "https://youtube.com/embed/OQazvemWJvE?feature=share",
+        "https://youtube.com/embed/edG6Sbe34uU?feature=share", "https://youtube.com/embed/Hfs7DM7zVlY?feature=share",
+         "https://www.youtube.com/embed/X3DnkTpY7u8", "https://youtube.com/embed/cm_0v_o9Hm8?feature=share",
+          "https://youtube.com/embed/qUfAxSaV9QE?feature=share", "https://youtube.com/embed/U4nlpEBGR1U?feature=share",
+           "https://youtube.com/embed/0aNH4QInaVs?feature=share", "https://youtube.com/embed/wPBFKEY-k6Y?feature=share",
+            "https://youtube.com/embed/JL2labGSpWc?feature=share", "https://youtube.com/embed/ZDSQD3DhF7E?feature=share",
+             "https://youtube.com/embed/Af9pr90gIIk?feature=share", "https://youtube.com/embed/w2S6_lzeXwA?feature=share",
+              "https://youtube.com/embed/QZZ0MY_w_aM?feature=share", "https://youtube.com/embed/ZKcrXBEl1NU?feature=share",
+               "https://youtube.com/embed/wFXyTC6-_5s?feature=share", "https://youtube.com/embed/BqNV6dQVFSc?feature=share",
+                "https://youtube.com/embed/5blSzzo2_a8?feature=share", "https://youtube.com/embed/cQRUY_SZaiw?feature=share",
+                "https://youtube.com/embed/yaM7n-PnVrs?feature=share", "https://youtube.com/embed/BiM39Hk1x6Y?feature=share",
+                "https://youtube.com/embed/8DVolU3ThiI?feature=share", "https://youtube.com/embed/D1TCjsLPohI?feature=share",
+                 "https://youtube.com/embed/aGOL9pQ85n4?feature=share", "https://youtube.com/embed/nkvi-prB-4s?feature=share",
+                   "https://youtube.com/embed/lHQW44Wojrc?feature=share", "https://youtube.com/embed/FmaJfL9cvTU?feature=share",
+                     "https://youtube.com/embed/lGc2ahuSRho?feature=share", "https://youtube.com/embed/x8dpKfZOlRs?feature=share",
+  ];
+
+  const portfolio = document.getElementById('portfolio');
+  const btn = document.getElementById('showMoreBtn');
+  const groupSize = 6;
+  let currentIndex = 0;
+
+  function renderVideos() {
+    portfolio.innerHTML = ''; // تنظيف القديم
+    const group = videoSources.slice(currentIndex, currentIndex + groupSize);
+    group.forEach(src => {
+      const div = document.createElement('div');
+      div.className = 'phone-frame';
+      div.innerHTML = `
+      <iframe 
+        src="${src}" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen 
+        style="width:100%; height:100%; border:none;">
+      </iframe>`;
+      portfolio.appendChild(div);
+    });
+
+    btn.textContent = (currentIndex + groupSize >= videoSources.length) ? " Return to start " : " See more ";
+  }
+
+  btn.addEventListener('click', () => {
+    currentIndex += groupSize;
+    if (currentIndex >= videoSources.length) currentIndex = 0;
+    renderVideos();
+  });
+
+  // عند التحميل
+  renderVideos();
+</script>
+
+<script>
+  // Scroll animation
+  document.addEventListener("DOMContentLoaded", function () {
+    const faders = document.querySelectorAll('section');
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(section => {
+      appearOnScroll.observe(section);
+    });
+
+    // title change
+    let originalTitle = document.title;
+    document.addEventListener("visibilitychange", function () {
+      document.title = document.hidden ? "👋 Don’t forget to come back!" : originalTitle;
+    });
+  });
+
+
+   let lastScrollTop = 0;
+  const header = document.querySelector("header");
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // نزل المستخدم => نخفي الهيدر
+      header.style.top = "-100px";
+    } else {
+      // طلع المستخدم => نظهر الهيدر
+      header.style.top = "0";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+
+  // لما يكون الماوس في الأعلى، نرجع نظهر الهيدر
+  document.body.addEventListener("mousemove", function (e) {
+    if (e.clientY < 60) {
+      header.style.top = "0";
+    }
+  });
+</script>
+
+</body>
+</html>
