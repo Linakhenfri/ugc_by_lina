@@ -277,7 +277,7 @@
 
   const portfolio = document.getElementById('portfolio');
   const btn = document.getElementById('showMoreBtn');
-  const groupSize = 6;
+  const groupSize = 3;
   let currentIndex = 0;
 
   function renderVideos() {
@@ -297,7 +297,16 @@
       portfolio.appendChild(div);
     });
 
-    btn.textContent = (currentIndex + groupSize >= videoSources.length) ? " Return to start " : " See more ";
+    // التحديث الديناميكي لعدد الفيديوهات المعروضة والمتبقية
+  const total = videoSources.length;
+  const shown = currentIndex + group.length;
+  const remaining = total - shown;
+
+  btn.textContent = (remaining <= 0)
+    ? `Return to start (Total: ${total})`
+    : `Next (${shown}/${total} shown – ${remaining} left)`;
+    
+
   }
 
   btn.addEventListener('click', () => {
